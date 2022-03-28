@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-auto">
+      <h2 class="mt-2">User info</h2>
+      <%=render"layouts/error",obj:@user%>
+      <%=form_with model:@user,url:user_path,method: :patch,local:true do |f|%>
+      <div class="form-group">
+        <%=f.label :Name,class:"user_name"%>
+        <%=f.text_field :name,class:"form-control user_name"%>
+      </div>
+      <div class="form-group">
+        <%=f.label :Image,class:"user_image"%>
+        <%=f.file_field :profile_image,accept:"image/*",class:"user_image form-control-file"%>
+      </div>
+      <div class="form-group">
+        <%=f.label :Introduction,class:"user_introduction"%>
+        <%=f.text_area :introduction,class:"form-control user_introduction"%>
+      </div>
+      <div class="form-group">
+        <%=f.submit"Update User",class:"btn btn-sm btn-secondary mt-2"%>
+      </div>
+      <%end%>
+    </div>
+  </div>
+</div>

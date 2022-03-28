@@ -1,0 +1,36 @@
+<div class="container">
+  <%=render"layouts/error",obj:@book%>
+  <div class="row">
+    <div class="col-md-3 mt-2">
+      <%=render"layouts/info",user:@user%>
+      <%=render"layouts/form",book:@book%>
+    </div>
+    <div class="col-md-9">
+      <h2 class="mt-2">Users</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%@users.each do |user|%>
+          <tr>
+            <td>
+              <%=image_tag user.get_profile_image(40,40)%>
+            </td>
+            <td>
+              <%=user.name%>
+            </td>
+            <td>
+              <%=link_to"Show",user_path(user.id)%>
+            </td>
+          </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
