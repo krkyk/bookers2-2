@@ -27,16 +27,8 @@
             <td>
               <%=@book_one.body%>
             </td>
-            <td>
-              <%if @book_one.favorited_by?(current_user)%>
-                <%=link_to book_favorites_path(@book_one),method: :delete do%>
-                  <i class="fas fa-heart" style="color:red;" aria-hidden="true"></i><%=@book_one.favorites.count%>
-                <%end%>
-              <%else%>
-                <%=link_to book_favorites_path(@book_one),method: :post do%>
-                  <i class="fas fa-heart" aria-hidden="true"></i><%=@book_one.favorites.count%>
-                <%end%>
-              <%end%>
+            <td class="favorite_buttons_<%=@book_one.id%>">
+              <%=render"favorites/book_favorites",book:@book_one%>
             </td>
             <td>
               コメント数:<%=@book_one.book_comments.count%>
